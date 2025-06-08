@@ -57,7 +57,7 @@ fn push_toast(msg: &str) {
     let cb = Closure::<dyn FnOnce()>::once({
         let div = div.clone();
         move || {
-           div.remove();
+            div.remove();
         }
     });
     win.set_timeout_with_callback_and_timeout_and_arguments_0(cb.as_ref().unchecked_ref(), 3000)
