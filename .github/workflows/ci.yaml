@@ -124,4 +124,7 @@ jobs:
         run: cargo install trunk wasm-bindgen-cli --locked
 
       - name: trunk build (release)
-        run: trunk build --release
+        run: |
+          cd crates/keyhook-ui
+          trunk build --release
+      
