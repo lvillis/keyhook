@@ -4,27 +4,88 @@ on:
   push:
     branches: [ main ]
     paths-ignore:
-      - 'Dockerfile'
-      - 'CHANGELOG.md'
       - 'README.md'
+      - 'CHANGELOG.md'
+      - 'Dockerfile'
   pull_request:
     branches: [ main ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+env:
+  WASM_TARGET: wasm32-unknown-unknown
+  CARGO_TERM_COLOR: always
 
+jobs:
+  # Format check and clippy lint
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
+        with: { fetch-depth: 0 }
+
+      - uses: actions-rs/toolchain@v1
         with:
+          toolchain: stable
           profile: minimal
+          override: true
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: rustfmt
+        run: cargo fmt --all -- --check
+
+      - name: clippy
+        run: cargo clippy --workspace --exclude keyhook-ui --all-targets -- -D warnings
+
+  # Build and run tests for backend/model crates
+  test:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
           toolchain: stable
           override: true
 
-      - name: Build
-        run: cargo build --verbose
+      - uses: Swatinem/rust-cache@v2
 
-      - name: Run tests
-        run: cargo test --verbose
+      - name: run tests
+        run: cargo test --workspace --exclude keyhook-ui --locked
+
+  # Compile the Yew frontend to wasm32
+  wasm-build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          target: ${{ env.WASM_TARGET }}
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: build keyhook-ui (wasm32)
+        run: cargo build -p keyhook-ui --target ${{ env.WASM_TARGET }} --release --locked
+
+  # Ensure trunk can produce the final static assets
+  trunk-build:
+    needs: wasm-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          target: ${{ env.WASM_TARGET }}
+
+      - name: install trunk
+        run: cargo install trunk wasm-bindgen-cli --locked
+
+      - name: trunk build (release)
+        run: trunk build --release
