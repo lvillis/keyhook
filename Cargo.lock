@@ -2389,7 +2389,7 @@ dependencies = [
 
 [[package]]
 name = "keyhook"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "anyhow",
  "keyhook-model",
@@ -2407,14 +2407,14 @@ dependencies = [
 
 [[package]]
 name = "keyhook-model"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "serde",
 ]
 
 [[package]]
 name = "keyhook-ui"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "console_error_panic_hook",
  "js-sys",
