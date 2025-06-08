@@ -40,6 +40,6 @@ reqwest = { version = "0.12.19", default-features = false, features = ["rustls-t
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.19", features = ["env-filter", "fmt", "time"] }
 
-keyhook = { path = "crates/keyhook", version = "0.1.0" }
+keyhook = { path = "crates/keyhook", version = "0.1.1" }
 keyhook-ui = { path = "crates/keyhook-ui", version = "0.1.0" }
 keyhook-model = { path = "crates/keyhook-model", version = "0.1.0" }
