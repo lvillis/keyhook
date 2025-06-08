@@ -213,12 +213,12 @@ pub fn run() -> tauri::Result<()> {
             delete_rule
         ])
         .setup(|app| {
-            let rules = config::load_rules(&app.app_handle());
-            if let Err(e) = register_shortcuts(&app.app_handle(), &rules) {
+            let rules = config::load_rules(app.app_handle());
+            if let Err(e) = register_shortcuts(app.app_handle(), &rules) {
                 tracing::error!(error = %e, "register_shortcuts failed");
             }
 
-            init_tray(&app.app_handle())?;
+            init_tray(app.app_handle())?;
 
             // Hide instead of quit when user clicks window close
             if let Some(w) = app.get_webview_window("main") {

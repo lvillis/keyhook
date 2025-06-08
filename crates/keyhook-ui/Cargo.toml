@@ -24,6 +24,6 @@ serde-wasm-bindgen = "0.6"
 console_error_panic_hook = "0.1.7"
 serde = { workspace = true }
 
-keyhook-model = { workspace = true }              # ← 去掉 path
+keyhook-model = { workspace = true }
 
 
