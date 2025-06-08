@@ -1,7 +1,7 @@
 [package]
 name = "keyhook"
 description = "⌨️ Global Hotkeys → Webhooks — one desktop app to trigger any HTTP request."
-version = "0.1.9"
+version = "0.1.10"
 edition = { workspace = true }
 license = { workspace = true }
 authors = { workspace = true }
