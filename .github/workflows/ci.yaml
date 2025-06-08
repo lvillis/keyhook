@@ -127,4 +127,3 @@ jobs:
         run: |
           cd crates/keyhook-ui
           trunk build --release
-      

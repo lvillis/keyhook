@@ -25,6 +25,7 @@ exclude = [
   "Dockerfile",
   "docker-compose.yaml"
 ]
+keywords = ["tauri", "hotkey", "webhook", "automation", "desktop"]
 
 [workspace.dependencies]
 anyhow = "1.0.98"
