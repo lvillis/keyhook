@@ -91,7 +91,7 @@ jobs:
       # 5. Windows bundlers
       - name: Install Windows bundlers
         if: runner.os == 'Windows'
-        run: choco install -y nsis wix --no-progress
+        run: choco install -y nsis wixtoolset --no-progress
 
       # 6. Node and CLI tools
       - uses: actions/setup-node@v4
