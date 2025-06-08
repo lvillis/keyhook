@@ -1,0 +1,29 @@
+[package]
+name = "keyhook-ui"
+version = "0.1.0"
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+documentation = { workspace = true }
+exclude = { workspace = true }
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+yew = { version = "0.21", features = ["csr"] }
+yew-hooks = "0.3"
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = [
+    "Window", "Document", "Element", "EventTarget",
+    "HtmlInputElement", "HtmlTextAreaElement", "HtmlSelectElement"
+] }
+js-sys = "0.3"
+serde-wasm-bindgen = "0.6"
+console_error_panic_hook = "0.1.7"
+serde = { workspace = true }
+
+keyhook-model = { workspace = true }              # ← 去掉 path
+
+

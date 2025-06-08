@@ -1,0 +1,67 @@
+:root{
+  --primary:#396cd8;
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --text:#0f0f0f;
+  --danger:#ff5c5c;
+  --radius:8px;
+  --dur:150ms;
+  font-family:Inter,Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:24px;
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --primary:#24c8db;
+    --bg:#1b1e23;
+    --card:#24272e;
+    --text:#f6f6f6;
+  }
+}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);}
+
+main.container{
+  width:min(680px,90vw);margin:4vh auto;
+  display:flex;flex-direction:column;gap:1.5rem;
+}
+.card{
+  background:var(--card);border-radius:var(--radius);
+  padding:1.5rem;box-shadow:0 2px 6px rgba(0,0,0,.06);
+  transition:box-shadow var(--dur);
+}
+.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.12);}
+
+form.col{display:flex;flex-direction:column;gap:.75rem;}
+.row{display:flex;gap:.75rem;}
+input,select,textarea,button{
+  border:1px solid transparent;border-radius:var(--radius);
+  padding:.6em 1em;font-size:1rem;transition:all var(--dur);
+}
+input,select,textarea{flex:1;background:var(--bg);}
+textarea{min-height:110px;resize:vertical;}
+button{
+  background:var(--primary);color:#fff;font-weight:600;cursor:pointer;
+}
+button:hover{filter:brightness(1.1);}
+button:active{filter:brightness(.9);}
+
+table{width:100%;border-collapse:collapse;font-size:.95rem;}
+thead{background:var(--bg);font-weight:600;}
+tbody tr:nth-child(odd){background:rgba(0,0,0,.025);}
+tbody tr:hover{background:rgba(0,0,0,.05);}
+td,th{padding:.6rem .5rem;text-align:left;}
+.btn-del{
+  background:none;color:var(--danger);border:1px solid var(--danger);
+  border-radius:var(--radius);cursor:pointer;transition:all var(--dur);
+}
+.btn-del:hover{background:var(--danger);color:#fff;}
+
+.toast{
+  position:fixed;top:1rem;right:1rem;
+  background:var(--card);border-radius:var(--radius);
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+  padding:.8rem 1rem;min-width:220px;max-width:300px;
+  animation:slideIn var(--dur) ease,fadeOut .3s ease 2.7s forwards;
+}
+@keyframes slideIn{from{opacity:0;transform:translateY(-12px);}to{opacity:1;transform:none;}}
+@keyframes fadeOut{to{opacity:0;transform:translateY(-12px);}}

@@ -1,0 +1,56 @@
+# Build
+/target
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.o
+*.d
+*.rlib
+*.rmeta
+
+# Docs
+/target/doc
+
+# Cache
+.cargo/
+
+# Coverage
+coverage/
+*.profraw
+*.profdata
+*.gcno
+*.gcda
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.log
+*.tmp
+*.swp
+*.swo
+
+# WASM
+pkg/
+*.wasm
+
+# Node
+node_modules/
+
+# Library crates may ignore Cargo.lock
+# Cargo.lock
+
+.aiignore
+CONTEXT.md
+.justfile
+
+dist/
