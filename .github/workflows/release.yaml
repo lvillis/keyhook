@@ -1,15 +1,17 @@
 name: release
 
-# Triggered by a pushed tag or the manual button
 on:
   push:
-    tags: ['*']
+    tags: [ '*' ]
 
   workflow_dispatch:
     inputs:
       build_ref:
         description: 'Commit / Tag / Branch to build (leave empty = current HEAD)'
         required: false
+
+permissions:
+  contents: write
 
 env:
   PROJECT: keyhook
