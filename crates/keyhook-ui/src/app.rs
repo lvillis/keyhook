@@ -69,11 +69,11 @@ fn push_toast(msg: &str) {
 #[function_component(App)]
 pub fn app() -> Html {
     /* ---- Reactive State ---- */
-    let rules  = use_state_eq(Vec::<HookRule>::new);
+    let rules = use_state_eq(Vec::<HookRule>::new);
     let hotkey = use_state(String::new);
     let method = use_state(|| HttpMethod::GET);
-    let url    = use_state(String::new);
-    let body   = use_state(String::new);
+    let url = use_state(String::new);
+    let body = use_state(String::new);
 
     /* ---- Initial Load ---- */
     {
