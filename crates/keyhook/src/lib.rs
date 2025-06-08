@@ -164,7 +164,7 @@ fn register_shortcuts(app: &AppHandle<Wry>, rules: &[HookRule]) -> AnyResult<()>
 /* ──────────────── System Tray ──────────────── */
 
 fn init_tray(app: &AppHandle<Wry>) -> tauri::Result<()> {
-    let icon = Image::from_bytes(include_bytes!("../../keyhook-ui/public/logo.png"))?;
+    let icon = Image::from_bytes(include_bytes!("../icons/logo.png"))?;
 
     let show_item = MenuItem::with_id(app, "show", "Show Window", true, None::<&str>)?;
     let quit_item = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;

@@ -23,7 +23,8 @@ exclude = [
   "/rust-toolchain.toml",
   "/.gitignore",
   "Dockerfile",
-  "docker-compose.yaml"
+  "docker-compose.yaml",
+  "/grn/"
 ]
 keywords = ["tauri", "hotkey", "webhook", "automation", "desktop"]
 
