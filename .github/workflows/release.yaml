@@ -31,10 +31,10 @@ jobs:
         include:
           # Windows build
           - os: windows-latest
-            bundles: 'nsis wix-msi'
+            bundles: 'nsis,msi'
             artifact_glob: |
               target/release/bundle/nsis/*.exe
-              target/release/bundle/wix/*.msi
+              target/release/bundle/msi/*.msi
 
           # macOS build
           - os: macos-latest
