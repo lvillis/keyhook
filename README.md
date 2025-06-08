@@ -35,6 +35,10 @@
 | 📜 **Structured logs**   | `tracing` output to console with UTC timestamps and log-level filtering (`KEYHOOK_LOG`).          |
 | 📦 **Portable build**    | One binary per OS (`tauri bundle`), no runtime dependencies apart from system webview.            |
 
+## 📸 Screenshots
+
+![img](docs/assets/img.png)
+
 ## 🕸 Architecture
 
 ```mermaid
