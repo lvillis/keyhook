@@ -38,7 +38,7 @@ jobs:
 
           # Linux
           - os: ubuntu-latest
-            bundles: 'appimage deb'
+            bundles: 'appimage,deb'
             artifact_glob: |
               target/release/bundle/appimage/*.AppImage
               target/release/bundle/deb/*.deb
