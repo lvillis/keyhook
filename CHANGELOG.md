@@ -2,11 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.7] - 2025-06-08
+
+### ⚙️ Miscellaneous Tasks
+
+- *(ci)* Update release.yaml
+
 ## [0.1.6] - 2025-06-08
 
 ### ⚙️ Miscellaneous Tasks
 
 - *(ci)* Update release.yaml
+- Release version 0.1.6
 
 ## [0.1.5] - 2025-06-08
 
