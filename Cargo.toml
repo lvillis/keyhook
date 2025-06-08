@@ -40,6 +40,14 @@ reqwest = { version = "0.12.19", default-features = false, features = ["rustls-t
 tracing = "0.1.41"
 tracing-subscriber = { version = "0.3.19", features = ["env-filter", "fmt", "time"] }
 
-keyhook = { path = "crates/keyhook", version = "0.1.2" }
-keyhook-ui = { path = "crates/keyhook-ui", version = "0.1.0" }
-keyhook-model = { path = "crates/keyhook-model", version = "0.1.0" }
+keyhook = { path = "crates/keyhook", version = "0.1" }
+keyhook-ui = { path = "crates/keyhook-ui", version = "0.1" }
+keyhook-model = { path = "crates/keyhook-model", version = "0.1" }
+
+[workspace.metadata.release]
+shared-version = true
+tag-prefix = ""
+tag-name = "{{prefix}}{{version}}"
+tag-message = "chore: release version {{version}}"
+pre-release-commit-message = "chore: release version {{version}}"
+pre-release-hook = ["git", "cliff", "--workdir", "../", "--output", "../../CHANGELOG.md", "--tag", "{{version}}"]
