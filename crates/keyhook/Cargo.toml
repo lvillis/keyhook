@@ -28,7 +28,7 @@ tauri-build = { version = "2", features = [] }
 [dependencies]
 tauri = { version = "2.5.1", features = ["tray-icon", "image-png"] }
 
-tauri-plugin-opener = "2.2.7"
+tauri-plugin-opener = "2.3.0"
 tauri-plugin-global-shortcut = "2.2.1"
 
 anyhow = { workspace = true }
