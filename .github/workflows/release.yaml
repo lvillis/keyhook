@@ -79,7 +79,7 @@ jobs:
         run: choco install -y nsis wixtoolset --no-progress
 
       # 5. Install Node and CLI tools (Trunk, wasm-bindgen, Tauri)
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 20
       - name: Install Rust CLI helpers
